@@ -7,7 +7,7 @@
 </head>
 <body>
 
-
+<!-- kbd == monospace font used for (example: alt + f...) -->
   <div class="keys">
     <div data-key="65" class="key">
       <kbd>A</kbd>
@@ -58,9 +58,41 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
-
+// function that plays sound when data-keys are pressed
+  function playSound(e) {
+    // selects all audio tags from line 50-58 that have the data-key key + keyCode.
+    // e triggers an event passed as a parameter.
+    // keyCode is the key when pressed on keyboard and it can be found with console.log(e)
+    // we are using ES6 tidbits and ${} for interpolation
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    // selects all key class with data-key...
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    // this is how a class gets added using vanilla JS.
+    // goes through a list of classes and adds class 'playing'
+    key.classList.add('playing');
+    // if no audio was found, then return nothing
+    // this is mainly when a keyboard stroke doesn't have a data-key, will do nothing
+    if (!audio) return; // stop audio from running
+    // currentTime allows us to repeat the audio as soon as in 0 miliseconds
+    audio.currentTime = 0; // rewind to the start
+    // play method allows audio to be played -- this method comes in JS https://www.w3schools.com/tags/ref_av_dom.asp
+    audio.play()
+  };
+// removes class 'playing'
+  function removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    // in this case, 'this' will point to the data-key div from the event listener
+    // removes class 'playing'
+    this.classList.remove('playing');
+    // console.log(this);
+  };
+// selects all classes 'key'
+  const keys = document.querySelectorAll('.key')
+  // using ES6 - loop through 
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+  // listen to an event on window. in this case will be 'keydown'
+  window.addEventListener('keydown', playSound);
 </script>
-
 
 </body>
 </html>
