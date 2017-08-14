@@ -88,7 +88,7 @@
   };
 // selects all classes 'key'
   const keys = document.querySelectorAll('.key')
-  // using ES6 - loop through 
+  // using ES6 - loop through keys variable because it's a Node list and using jQuery 'keys.addEventListener' wouldn't be able to listen to all of them.
   keys.forEach(key => key.addEventListener('transitionend', removeTransition));
   // listen to an event on window. in this case will be 'keydown'
   window.addEventListener('keydown', playSound);
