@@ -6,7 +6,7 @@
 </head>
 <body>
 
-  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+  <p onClick="makeGreen()" class="num">×BREAK×DOWN×</p>
 
   <script>
     const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
@@ -24,18 +24,28 @@
     console.log('Hello! I am a %s!', 'poop');
 
     // Styled
+    console.log('%c I am very colorful', 'color: red;')
 
     // warning!
+    console.warn('be careful!')
 
     // Error :|
+    console.error('you\'ve got an error');
 
     // Info
+    console.info('some info for you');
 
     // Testing
+    const p = document.querySelector('p');
+
+    console.assert(p.classList.contains('num'), 'That is wrong!');
 
     // clearing
+    console.clear()
 
     // Viewing DOM Elements
+    console.log(p)
+    console.dir(p)
 
     // Grouping together
 
