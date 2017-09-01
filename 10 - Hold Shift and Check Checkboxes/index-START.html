@@ -99,15 +99,16 @@
   </div>
 
   <script>
-    const items = document.querySelectorAll('.item');
-    items.forEach(item => {
-      console.log(item);  
-    })
-    const click = items.addEventListener('click', function() {
-      let check = document.querySelector('.checkbox');
-      return this.check;
-    })
-    console.log(click);
+    const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+    // items.forEach(item => {
+    //   console.log(item);  
+    // })
+    console.log(checkboxes);
+    checkboxes.forEach(checkbox => checkbox.addEventListener ('click', function() {
+      console.log("hello");
+    }))
+    
+    
     
   </script>
 </body>
