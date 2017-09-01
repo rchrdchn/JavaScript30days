@@ -103,6 +103,11 @@
     items.forEach(item => {
       console.log(item);  
     })
+    const click = items.addEventListener('click', function() {
+      let check = document.querySelector('.checkbox');
+      return this.check;
+    })
+    console.log(click);
     
   </script>
 </body>
