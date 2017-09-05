@@ -7,6 +7,19 @@
 </head>
 <body>
 <script>
+const pressed = [];
+const secretWord = "rich";
+
+window.addEventListener('keyup', (e) => {
+	console.log(e.key);
+	pressed.push(e.key);
+	pressed.splice(-secretWord.length - 1, pressed.length - secretWord.length);
+	if (pressed.join('').includes(secretWord)) {
+		console.log("YES!!!");
+		cornify_add();
+	};
+	console.log(pressed);
+})
 </script>
 </body>
 </html>
