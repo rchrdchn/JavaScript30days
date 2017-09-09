@@ -70,7 +70,7 @@
         const imageBotton = sliderImage.offsetTop + sliderImage.height;
         const isHalfShownn = slideInAt > sliderImage.offsetTop;
         const isNotScrolledPast = window.scrollY < imageBotton;
-        
+        // adds and remove class when scrolling down 
         if (isHalfShownn && isNotScrolledPast) {
           sliderImage.classList.add('active');
         } else {
