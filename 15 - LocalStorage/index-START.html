@@ -56,7 +56,7 @@
 
   function toggleDone(e) {
     if (!e.target.matches('input')) return;
-    const el = e.target;
+    const el = e.target;  // skip this unless it's an input
     const index = el.dataset.index;
     items[index].done = !items[index].done;
     localStorage.setItem('items', JSON.stringify(items));
