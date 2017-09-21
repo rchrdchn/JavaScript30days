@@ -58,6 +58,16 @@
     /*Compass: https://thenounproject.com/search/?q=compass&i=592352*/
   </style>
   <script>
+    const speed = document.querySelector('.speed-value');
+    const arrow = document.querySelector('.arrow');
+
+    navigator.geolocation.watchPosition((data) => {
+      speed.textContent = data.coords.speed;
+      arrow.style.transform = `rotate(${data.coords.heading}deg)`;
+    }, (err) => {
+    console.err(err);
+    alert('HEY! GOTTA ALLOW THAT TO HAPPEN!')
+    });
   </script>
 </body>
 </html>
