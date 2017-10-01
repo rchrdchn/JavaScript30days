@@ -39,8 +39,12 @@
 
 <button></button>
 <script>
-const div = document.querySelector('div');
-const buttons = document.querySelector('')
+const divs = document.querySelectorAll('div');
+const buttons = document.querySelector('button')
+
+function logText(e) {
+  console.log(this.classList.value)
+}
 
 div.addEventListener('click', move);
 </script>
