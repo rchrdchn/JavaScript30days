@@ -46,7 +46,16 @@ function logText(e) {
   console.log(this.classList.value)
 }
 
-div.addEventListener('click', move);
+divs.forEach(div => div.addEventListener('click', logText, {
+  capture: false,
+  once: true
+}));
+
+button.addEventListener('click', () => {
+  console.log('Click!');
+}, {
+  once: true
+})
 </script>
 </body>
 </html>
